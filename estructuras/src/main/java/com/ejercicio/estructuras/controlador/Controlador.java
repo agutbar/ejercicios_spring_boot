@@ -110,15 +110,34 @@ public class Controlador {
 		return respuesta;
 	}
 	
-	@PostMapping("/encuesta")
+	@PostMapping("/sumatoria")
 	public String ejercicio7 (@RequestParam int numero) {
 		String respuesta = "";
 		int sumatoria = 0;
-		for (int i = 0; i <= numero; i++) {
-			sumatoria += sumatoria + i;
+		if (numero <= 0) {
+			respuesta += "<h1>Ha introducido un numero que no es valido</h1>";
+		} else {
+			for (int i = 0; i <= numero; i++) {
+				sumatoria += sumatoria + i;
+			}
+			respuesta = "<h1> El resultado de todos los numeros entre 0 y " + numero + " es " + sumatoria + "</h1>" ;
 		}
 		
-		respuesta = "<h1> El resultado de todos los numeros entre 0 y " + numero + " es " + sumatoria + "</h1>" ;
+		return respuesta;
+	}
+	
+	@PostMapping("/factorial")
+	public String ejercicio8 (@RequestParam int numero) {
+		String respuesta = "";
+		int factorial = 1;
+		if (numero <= 0) {
+			respuesta += "<h1>Ha introducido un numero que no es valido</h1>";
+		} else {
+			for (int i = 1; i <= numero; i++) {
+				factorial += factorial * i;
+			}
+			respuesta = "<h1> El factorial de " + numero + " es " + factorial + "</h1>" ;
+		}
 		
 		return respuesta;
 	}
