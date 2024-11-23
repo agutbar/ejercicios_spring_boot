@@ -83,4 +83,13 @@ public class Controlador {
 		
 		return respuesta;
 	}
+	
+	@PostMapping("/encuesta")
+	public String ejercicio5 (@RequestParam int valoracion) {
+		String respuesta = "<h1> Gracias por su colaboracion </h1> <br/> <br/> <h2> Su valoracion ha sido de: " + valoracion + "</h2>";
+		
+		return respuesta;
+	}
+	
+	
 }
