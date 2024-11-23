@@ -109,4 +109,17 @@ public class Controlador {
 		
 		return respuesta;
 	}
+	
+	@PostMapping("/encuesta")
+	public String ejercicio7 (@RequestParam int numero) {
+		String respuesta = "";
+		int sumatoria = 0;
+		for (int i = 0; i <= numero; i++) {
+			sumatoria += sumatoria + i;
+		}
+		
+		respuesta = "<h1> El resultado de todos los numeros entre 0 y " + numero + " es " + sumatoria + "</h1>" ;
+		
+		return respuesta;
+	}
 }
