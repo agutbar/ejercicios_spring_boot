@@ -91,5 +91,22 @@ public class Controlador {
 		return respuesta;
 	}
 	
-	
+	@PostMapping("/generarContrasena")
+	public String ejercicio6 (@RequestParam int longitud) {
+		String respuesta = "";
+		String resultado = "";
+		String generacion = "";
+		if (longitud <= 0) {
+			resultado += "Longitud no valida";
+			generacion += "No se ha podido generar ninguna contraseña";
+		} else {
+			for (int i = 0; i < longitud; i++) {
+				int val = (int)Math.random() * 10;
+				generacion += val;
+			}
+		}
+		respuesta += "<h1>" + resultado + "<br/> <br/> <h2> La contraseña resultante es: " + generacion + "</h2>";
+		
+		return respuesta;
+	}
 }
