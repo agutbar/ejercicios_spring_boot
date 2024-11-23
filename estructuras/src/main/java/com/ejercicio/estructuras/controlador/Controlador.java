@@ -52,4 +52,35 @@ public class Controlador {
 		
 		return "<h1>" + respuesta + "</h1>";
 	}
+	
+	@PostMapping("/calcularIMC")
+	public String ejercicio4(@RequestParam double peso, double altura) {
+		double valor = 0;
+		String estado = "";
+		valor = peso /(altura * altura);
+		if (valor < 18.5) {
+			estado += "Bajo peso";
+		}
+		if (valor >= 18.5 && valor <= 24.9) {
+			estado += "Peso ideal";
+		}
+		if (valor >= 25 && valor <= 29.9) {
+			estado += "Sobrepeso";
+		}
+		if (valor >= 30 && valor <= 34.9) {
+			estado += "Obesidad leve";
+		}
+		if (valor >= 35 && valor <= 39.9) {
+			estado += "Obesidad moderada";
+		}
+		if (valor >= 40) {
+			estado += "Obsesidad mórvida";
+		}
+		
+		String r_valor = "<h1>El índice de masa corporal es: " + valor +" </h1>";
+		String r_estado = "<h1>Eso se traduce a un nivel de: " + estado + "</h1>";
+		String respuesta = r_valor + "<br/> <br/>" + r_estado;
+		
+		return respuesta;
+	}
 }
